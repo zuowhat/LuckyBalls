@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+蓝色1-16号球的界面
+ -->
+
+<zc.twocolor.util.BallScrollView
+      
+       xmlns:android="http://schemas.android.com/apk/res/android"
+         android:id="@+id/scrollThree"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         >
+    
+
+
+<LinearLayout 
+   
+    android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical"
+android:gravity="center"
+    >
+
+  
+    
+    
+    
+
+ <zc.twocolor.util.BallGridView       
+        
+android:id="@+id/gridviewThree"
+
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:numColumns="4"
+android:verticalSpacing="10dp"
+android:stretchMode="spacingWidthUniform"
+android:gravity="center"
+android:columnWidth="60dp"
+
+  />
+
+     
+        
+ 
+ <RelativeLayout 
+     android:layout_marginTop="10dp"
+     android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:gravity="center"
+     >
+     
+     
+     
+     
+     <Button 
+        
+         android:id="@+id/blueOk"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:background="@drawable/ok_ball"
+         android:layout_marginLeft="10dp"
+         />
+     
+     <Button 
+        
+         android:id="@+id/blueRefresh"
+         android:layout_toRightOf="@id/blueOk"
+         android:layout_marginLeft="72dp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:background="@drawable/refresh_ball"
+         />
+     
+     
+ </RelativeLayout>
+ 
+ 
+ <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ball_point_three"
+        android:layout_marginTop="10dp"
+        />
+
+ </LinearLayout>
+ 
+</zc.twocolor.util.BallScrollView>

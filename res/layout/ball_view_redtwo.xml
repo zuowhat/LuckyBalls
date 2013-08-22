@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+红色21-33号球的界面
+ -->
+ 
+   <zc.twocolor.util.BallScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+         android:id="@+id/scrollTwo"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         >
+ 
+ 
+<LinearLayout 
+   
+    android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical"
+android:gravity="center"
+    >
+    
+ 
+    
+    
+ <zc.twocolor.util.BallGridView       
+        
+android:id="@+id/gridviewTwo"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:numColumns="4"
+android:verticalSpacing="10dp"
+android:stretchMode="spacingWidthUniform"
+android:gravity="center"
+android:columnWidth="60dp"
+
+   />
+
+      
+        
+ 
+ 
+ 
+  <LinearLayout
+     android:layout_marginTop="10dp"
+     android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="horizontal"
+	android:gravity="center_vertical"
+     >
+     
+      <ImageView 
+          android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+          android:src="@drawable/user_money"
+          android:layout_marginLeft="13dp"
+          />
+      
+      
+      
+     <TextView 
+         android:id="@+id/youScore"
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textColor="#ffffff"
+	android:textSize="15dp"
+         />
+ 
+ 	<ImageView 
+          android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+          android:src="@drawable/money_all"
+          android:layout_marginLeft="90dp"
+          />
+ 	
+     <TextView 
+         android:id="@+id/systemScore"
+    android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:textSize="15dp"
+	android:textColor="#ffffff"
+	android:layout_marginLeft="4dp"
+         />
+     
+     
+     
+     
+     
+        </LinearLayout>
+        
+  <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ball_point_two"
+        android:layout_marginTop="15dp"
+        />
+  
+ 
+ </LinearLayout>
+ 
+
+ </zc.twocolor.util.BallScrollView>
