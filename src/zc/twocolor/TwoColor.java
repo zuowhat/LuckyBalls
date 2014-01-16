@@ -11,14 +11,16 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.jumi.lucky.uti.JMPManager;
+import cn.waps.AppConnect;
 
 /*
  * 主界面
@@ -33,6 +35,7 @@ public class TwoColor extends ActivityGroup {
     Button exitButton;
     Button setButton;
     TextView textTitle;
+   // LinearLayout adlayout;
     private String [] ares = new String[]{"选号区" , "抽奖区" , "开奖区" , 
     		"成就区" , "说明区"};
     
@@ -48,10 +51,26 @@ public class TwoColor extends ActivityGroup {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        JMPManager manager = new JMPManager ();
-        manager.startService(this,1);
-        this.setVolumeControlStream(AudioManager.STREAM_MUSIC);   //控制音量调节
+        DisplayMetrics dm = new DisplayMetrics();  
+        getWindowManager().getDefaultDisplay().getMetrics(dm);  
+        int width = dm.widthPixels;  
+        int height = dm.heightPixels; 
+        RelativeLayout rl =(RelativeLayout)findViewById(R.id.all_frame); 
+        LayoutParams lp = rl.getLayoutParams();
+        lp.height = height;
+        lp.width = width;
         
+        AppConnect.getInstance("0276869b0aa0114eb4b73b7bc51ad081","default",this); 
+        AppConnect.getInstance(this).initPopAd(this); 
+       // AppConnect.getInstance(this).checkUpdate(this); 
+       // AppConnect.getInstance(this).setCrashReport(true);
+       // LinearLayout adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout); 
+       // AppConnect.getInstance(this).showBannerAd(this, adlayout); 
+        LinearLayout  adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout); 
+        AppConnect.getInstance(this).showBannerAd(this, adlayout); 
+        
+        
+        this.setVolumeControlStream(AudioManager.STREAM_MUSIC);   //控制音量调节
         playSoundPool=new PlaySoundPool(this);
         setButton = (Button)findViewById(R.id.set_button);
         textTitle = (TextView)findViewById(R.id.title);
@@ -81,6 +100,14 @@ public class TwoColor extends ActivityGroup {
 		}
         
         //退出Activtiy
+		
+		exitButton.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				QuitPopAd.getInstance().show(TwoColor.this);
+				
+			}});
+		
+		/*
         exitButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				playSoundPool.playSound(1);
@@ -89,9 +116,6 @@ public class TwoColor extends ActivityGroup {
 				exitBuilder.setCancelable(false); //返回键是否可以关闭对话框
 				exitBuilder.setPositiveButton("是", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
-//						ActivityManager  am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
-//						am.restartPackage(getPackageName());
-//						System.exit(0);
 						playSoundPool.playSound(1);
 						Intent i = new Intent(Intent.ACTION_MAIN);  
 						  i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  
@@ -111,7 +135,7 @@ public class TwoColor extends ActivityGroup {
 				exitBuilder.create();
 			}
 		});
-        
+        */
         
         
         //系统设置 --> 弹出列表菜单窗口
@@ -158,7 +182,6 @@ public class TwoColor extends ActivityGroup {
 				   }).show();	
 			}
 		});
-  
     }
     
     
@@ -181,7 +204,7 @@ public class TwoColor extends ActivityGroup {
 		editor.putInt("viewId" , 0);
 		
 		editor.commit();
-		System.out.println("TwoColor --> onDestroy");
+		AppConnect.getInstance(this).close();
 		super.onDestroy();
 	}
 

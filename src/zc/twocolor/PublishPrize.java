@@ -32,6 +32,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import cn.waps.AppConnect;
 
 
 /*
@@ -194,6 +195,7 @@ public class PublishPrize extends Activity{
 					Toast.makeText(PublishPrize.this, "请您先进行开奖...", 1).show();
 				}
 				else{
+					AppConnect.getInstance(PublishPrize.this).showPopAd(PublishPrize.this);
 					Toast.makeText(PublishPrize.this, "兑奖已结束", 1).show();
 				}
 			}
@@ -399,6 +401,7 @@ public class PublishPrize extends Activity{
 		
 		editorOne.putInt("ver", 0);   //初始化 --投注次数
 		editorOne.commit();
+		AppConnect.getInstance(this).showPopAd(this); 
 	}
 
 	public boolean onKeyDown(int keyCode, KeyEvent event) {

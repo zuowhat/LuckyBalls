@@ -7,13 +7,11 @@ import zc.twocolor.util.ArrayBalls;
 import zc.twocolor.util.PlaySoundPool;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -21,9 +19,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import cn.waps.AppConnect;
 
 public class HelpSOS extends Activity{
 	
@@ -55,6 +55,7 @@ public class HelpSOS extends Activity{
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.help_view);
 	        System.out.println("HelpSOS --> onCreate");
+	        
 	        ab = new ArrayBalls();
 	        imageAfter = new int[20];
 	        playSoundPool=new PlaySoundPool(this);
@@ -73,6 +74,7 @@ public class HelpSOS extends Activity{
 							int arg2, long arg3) {
 						playSoundPool.playSound(1);
 						if(num < 0){
+							AppConnect.getInstance(HelpSOS.this).showPopAd(HelpSOS.this); 
 							Toast.makeText(HelpSOS.this, "您不能再进行抽奖...", 1).show();
 						}
 						else{

@@ -1,5 +1,6 @@
 package zc.twocolor;
 
+import cn.waps.AppConnect;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +16,7 @@ public class appBackActivity extends Activity {
                 //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);   //删除电池时间栏
                 //requestWindowFeature(Window.FEATURE_NO_TITLE);  //删除标题栏
                 setContentView(R.layout.app_back);
-
+                
                 new Handler().postDelayed(new Runnable(){
 
                  @Override

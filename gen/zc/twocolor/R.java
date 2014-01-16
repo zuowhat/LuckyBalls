@@ -178,18 +178,20 @@ public final class R {
         public static final int ww1=0x7f02009d;
     }
     public static final class id {
-        public static final int ItemImage=0x7f080028;
+        public static final int AdLinearLayout=0x7f080023;
+        public static final int ItemImage=0x7f08002a;
         public static final int ViewFlipper1=0x7f080003;
         public static final int ViewFlipper2=0x7f080014;
         public static final int achGridView=0x7f080002;
         public static final int achItemImage=0x7f080000;
         public static final int achItemText=0x7f080001;
+        public static final int all_frame=0x7f08001d;
         public static final int blueOk=0x7f080006;
         public static final int blueRefresh=0x7f080007;
         public static final int captionScrollOne=0x7f080015;
         public static final int captionScrollThree=0x7f080016;
         public static final int captionScrollTwo=0x7f080017;
-        public static final int exit_button=0x7f08001e;
+        public static final int exit_button=0x7f08001f;
         public static final int gridviewOne=0x7f08000f;
         public static final int gridviewThree=0x7f080005;
         public static final int gridviewTwo=0x7f080011;
@@ -198,29 +200,29 @@ public final class R {
         public static final int helpExit=0x7f080019;
         public static final int helpGridView=0x7f080018;
         public static final int helpItemImage=0x7f08001c;
-        public static final int main_frame=0x7f080021;
-        public static final int publishBlueGridView=0x7f08002a;
-        public static final int publishDialogText=0x7f080027;
-        public static final int publishList=0x7f080022;
-        public static final int publishRedGridView=0x7f080029;
-        public static final int publishTextView=0x7f08002b;
+        public static final int main_frame=0x7f080022;
+        public static final int publishBlueGridView=0x7f08002c;
+        public static final int publishDialogText=0x7f080029;
+        public static final int publishList=0x7f080024;
+        public static final int publishRedGridView=0x7f08002b;
+        public static final int publishTextView=0x7f08002d;
         public static final int scrNum=0x7f08000a;
         public static final int scrollOne=0x7f08000e;
         public static final int scrollThree=0x7f080004;
         public static final int scrollTwo=0x7f080010;
-        public static final int set_button=0x7f080020;
+        public static final int set_button=0x7f080021;
         public static final int showDialogBack=0x7f08000c;
         public static final int showDialogGo=0x7f08000d;
         public static final int showDialogOk=0x7f08000b;
-        public static final int showLin=0x7f080024;
-        public static final int showPrize=0x7f080023;
-        public static final int showPrizeGridView=0x7f080025;
+        public static final int showLin=0x7f080026;
+        public static final int showPrize=0x7f080025;
+        public static final int showPrizeGridView=0x7f080027;
         public static final int show_blue_gridview=0x7f080009;
         public static final int show_red_gridview=0x7f080008;
         public static final int systemScore=0x7f080013;
-        public static final int title=0x7f08001f;
-        public static final int top_frame=0x7f08001d;
-        public static final int winPrize=0x7f080026;
+        public static final int title=0x7f080020;
+        public static final int top_frame=0x7f08001e;
+        public static final int winPrize=0x7f080028;
         public static final int youScore=0x7f080012;
     }
     public static final class layout {

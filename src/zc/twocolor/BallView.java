@@ -1,6 +1,8 @@
 package zc.twocolor;
 import java.util.ArrayList;
 
+import cn.waps.AppConnect;
+
 import zc.twocolor.util.ArrayBalls;
 import zc.twocolor.util.BallGridView;
 import zc.twocolor.util.BallScrollView;
@@ -27,6 +29,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -360,6 +363,8 @@ public class BallView extends Activity implements android.view.GestureDetector.O
 				}
 			});
 			
+			
+		
 		
 	}
 	
