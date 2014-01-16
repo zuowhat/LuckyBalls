@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?> 
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"  
     android:layout_width="fill_parent"
@@ -7,59 +5,58 @@
     android:gravity="center"
     >
     
-    
     <ListView 
         android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:id="@+id/publishList"
-    	 android:layout_alignParentTop="true"
-    	
-        />
-    <Button 
-        android:id="@+id/showPrize"
-         android:layout_width="60dp"
-    	android:layout_height="wrap_content"
-    	android:text="开奖"
-    	android:layout_alignParentBottom="true"
-    	android:layout_marginLeft="30dp"
-    	android:textColor="#ffffff"
-    	android:background="@drawable/publish_btn"
+        android:layout_height="wrap_content"
+        android:id="@+id/publishList"
+        android:layout_alignParentTop="true"
         />
     
+    <Button 
+         android:id="@+id/showPrize"
+         android:layout_width="60dp"
+         android:layout_height="wrap_content"
+         android:text="开奖"
+         android:layout_alignParentBottom="true"
+         android:layout_marginLeft="60dp"
+         android:textColor="#ffffff"
+         android:background="@drawable/publish_btn"
+         android:layout_marginBottom="60dp"
+        />
     
     <LinearLayout 
         android:id="@+id/showLin"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/publishList"
-android:layout_above="@id/showPrize"
-android:gravity="bottom"
+		android:layout_above="@id/showPrize"
+		android:gravity="bottom"
         >
+        
     <GridView
         android:id="@+id/showPrizeGridView"
         android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:numColumns="4"
-android:verticalSpacing="10dp"
-android:horizontalSpacing="8dp"
-android:stretchMode="columnWidth"
-android:gravity="center"
-
-
+		android:layout_height="wrap_content"
+		android:numColumns="4"
+		android:verticalSpacing="10dp"
+		android:horizontalSpacing="8dp"
+		android:stretchMode="columnWidth"
+		android:gravity="center"
     />
  
     </LinearLayout>
     
     <Button 
-        android:id="@+id/winPrize"
+         android:id="@+id/winPrize"
          android:layout_width="60dp"
-    	android:layout_height="wrap_content"
-    	android:text="兑奖"
-    	android:layout_alignParentBottom="true"
-    	android:layout_toRightOf="@id/showPrize"
-    	android:layout_marginLeft="100dp"
-    	android:textColor="#ffffff"
-    	android:background="@drawable/publish_btn"
+         android:layout_height="wrap_content"
+         android:text="兑奖"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentRight="true"
+         android:layout_marginBottom="60dp"
+         android:layout_marginRight="60dp"
+         android:textColor="#ffffff"
+         android:background="@drawable/publish_btn"
         />
    
-    </RelativeLayout>
+</RelativeLayout>

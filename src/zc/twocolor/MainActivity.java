@@ -22,32 +22,24 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.waps.AppConnect;
 
-/*
- * 主界面
- * 
- * */
-
-public class TwoColor extends ActivityGroup {
+/**
+ * 主菜单画面
+ * @author zuowhat 2012-08-20
+ * @version 1.0
+ */
+public class MainActivity extends ActivityGroup {
     private LocalActivityManager lam = null;
     private LinearLayout ll;
     private Intent mainIntent = null;
-    PlaySoundPool playSoundPool;  //播放点击声音
-    Button exitButton;
-    Button setButton;
-    TextView textTitle;
-   // LinearLayout adlayout;
+    private PlaySoundPool playSoundPool;  //播放点击声音
+    private Button exitButton;
+    private Button setButton;
+    private TextView textTitle;
     private String [] ares = new String[]{"选号区" , "抽奖区" , "开奖区" , 
     		"成就区" , "说明区"};
-    
     private Class<?> [] clName = new Class<?> []{BallView.class, HelpSOS.class, PublishPrize.class, Achievement.class, CaptionAc.class};
     
-	
     public void onCreate(Bundle savedInstanceState) {
-    	
-    	//SharedPreferences spTwo = TwoColor.this.getSharedPreferences("view", Context.MODE_PRIVATE);
-		//int vTwo = spTwo.getInt("viewId", 99);
-		//System.out.println("TwoColor --> onCreate" + vTwo);
-    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
@@ -60,6 +52,7 @@ public class TwoColor extends ActivityGroup {
         lp.height = height;
         lp.width = width;
         
+        //广告代码
         AppConnect.getInstance("0276869b0aa0114eb4b73b7bc51ad081","default",this); 
         AppConnect.getInstance(this).initPopAd(this); 
        // AppConnect.getInstance(this).checkUpdate(this); 
@@ -68,7 +61,6 @@ public class TwoColor extends ActivityGroup {
        // AppConnect.getInstance(this).showBannerAd(this, adlayout); 
         LinearLayout  adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout); 
         AppConnect.getInstance(this).showBannerAd(this, adlayout); 
-        
         
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);   //控制音量调节
         playSoundPool=new PlaySoundPool(this);
@@ -79,32 +71,22 @@ public class TwoColor extends ActivityGroup {
         lam = getLocalActivityManager();
         
         //让ActivityGroup中的子Activity之间互相跳转
-        SharedPreferences sp = TwoColor.this.getSharedPreferences("view", Context.MODE_PRIVATE);
+        SharedPreferences sp = MainActivity.this.getSharedPreferences("view", Context.MODE_PRIVATE);
 		int v = sp.getInt("viewId", 0);
 		if(v == 2){
-
-			//Bundle bundle = this.getIntent().getExtras();
-			//if(bundle != null){
-
 			ll.removeAllViews();
 	    	mainIntent = new Intent(this,PublishPrize.class);
-
-	    	//mainIntent.putExtras(bundle);
 	    	ll.addView(lam.startActivity("开奖区", mainIntent).getDecorView());
 	    	textTitle.setText("开奖区");
-			
-			//}
 		}
 		else{
-        setContainerView(ares[v] , clName[v]);
+			setContainerView(ares[v] , clName[v]);
 		}
         
         //退出Activtiy
-		
 		exitButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				QuitPopAd.getInstance().show(TwoColor.this);
-				
+				QuitPopAd.getInstance().show(MainActivity.this);
 			}});
 		
 		/*
@@ -121,7 +103,6 @@ public class TwoColor extends ActivityGroup {
 						  i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  
 						  i.addCategory(Intent.CATEGORY_HOME);  
 						  startActivity(i); 
-						
 					}
 				});
 				
@@ -137,18 +118,14 @@ public class TwoColor extends ActivityGroup {
 		});
         */
         
-        
         //系统设置 --> 弹出列表菜单窗口
         setButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				playSoundPool.playSound(1);
-				new AlertDialog.Builder(TwoColor.this)
+				new AlertDialog.Builder(MainActivity.this)
 				.setTitle("访问区域")
 				.setItems(ares,new DialogInterface.OnClickListener(){  
 				      public void onClick(DialogInterface dialog, int which){  
-				    	  
-				       //点击菜单中元素后，所触发的事件
-				       //Toast.makeText(TwoColor.this, "您已经选择了: " + which + ":" + ares[which],Toast.LENGTH_LONG).show();  
 				       switch(which){
 				       case 0:
 				    	   playSoundPool.playSound(1);
@@ -162,7 +139,6 @@ public class TwoColor extends ActivityGroup {
 				       case 2:
 				    	   playSoundPool.playSound(1);
 				    	   setContainerView(ares[which] , PublishPrize.class);
-				    	   
 				    	   break;  
 				       
 				       case 3:
@@ -175,9 +151,7 @@ public class TwoColor extends ActivityGroup {
 				    	   setContainerView(ares[which] , CaptionAc.class);
 				    	   break;  
 				       }
-				    	  
 				    	  dialog.dismiss();  
-				       
 				      }  
 				   }).show();	
 			}
@@ -193,33 +167,23 @@ public class TwoColor extends ActivityGroup {
     	//ll.addView(lam.startActivity(id, mainIntent).getCurrentFocus());
     	textTitle.setText(id);
     }
-
-
 	
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
-		
-		SharedPreferences spView = TwoColor.this.getSharedPreferences("view", Context.MODE_PRIVATE);
+		SharedPreferences spView = MainActivity.this.getSharedPreferences("view", Context.MODE_PRIVATE);
 		Editor editor = spView.edit();
 		editor.putInt("viewId" , 0);
-		
 		editor.commit();
 		AppConnect.getInstance(this).close();
 		super.onDestroy();
 	}
 
 /*
-	
-	
-	@Override
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		System.out.println("TwoColor --> onPause");
 		super.onPause();
 	}
 
-
-	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		SharedPreferences spT = TwoColor.this.getSharedPreferences("view", Context.MODE_PRIVATE);
@@ -228,29 +192,18 @@ public class TwoColor extends ActivityGroup {
 		super.onResume();
 	}
 
-
-	@Override
 	protected void onStop() {
 		// TODO Auto-generated method stub
 		System.out.println("TwoColor --> onStop");
 		super.onStop();
 	}
-    
     */
     
 	 public boolean onKeyDown(int keyCode, KeyEvent event) {
-			
 		 switch (keyCode) {
 	        case KeyEvent.KEYCODE_BACK:
 	        return true;
 	    }
-		
 		return super.onKeyDown(keyCode, event);
 	}
-
-
-
-
-    
-    
 }

@@ -35,48 +35,38 @@ import android.widget.Toast;
 import cn.waps.AppConnect;
 
 
-/*
+/**
  * 开奖区
- * 
- * */
-
+ * @author zuowhat 2012-08-20
+ * @version 1.0
+ */
 public class PublishPrize extends Activity{
 	
-	ListView listView;
-	Button startButton;
-	Button winButton;
-	
-	AlertDialog achDialog;
-	View achDialogView;
-	//Dialog achDialog;
-	Button achBt;
-	ImageView achImg;
-	TextView achText;
-	
-	PlaySoundPool playSoundPool;  //播放点击声音
-	
-	ArrayBalls arrayBalls = new ArrayBalls();
-	Animation animation;
-	GridView gridview;
-	boolean [] boolRed =new boolean[33];
-	int rand = 0;
-	int [] randomBalls = new int[7]; //存储图片资源，里面数据都是Integer对象
-	int [] random = new int[6];     //存储红色号码球的随机数，int类型
-	int blueRandom = 0;   //存储蓝色号码球
-	int ver = 0;
-	
-	int [] counter;  //存储投注的倍数
-	int con = 0; //控制开奖和兑奖按钮的触发事件
-	
-	SharedPreferences sp1;
-	
+	private ListView listView;
+	private Button startButton;
+	private Button winButton;
+	private AlertDialog achDialog;
+	private View achDialogView;
+	private Button achBt;
+	private ImageView achImg;
+	private TextView achText;
+	private PlaySoundPool playSoundPool;  //播放点击声音
+	private ArrayBalls arrayBalls = new ArrayBalls();
+	private Animation animation;
+	private GridView gridview;
+	private boolean [] boolRed =new boolean[33];
+	private int rand = 0;
+	private int [] randomBalls = new int[7]; //存储图片资源，里面数据都是Integer对象
+	private int [] random = new int[6];     //存储红色号码球的随机数，int类型
+	private int blueRandom = 0;   //存储蓝色号码球
+	private int ver = 0;
+	private int [] counter;  //存储投注的倍数
+	private int con = 0; //控制开奖和兑奖按钮的触发事件
+	private SharedPreferences sp1;
 	//倒计时窗口变量
-	Dialog d;
-	//AlertDialog showBallDialog;
-	//View showBallDialogView;
-	TextView dialogText;
-	Timer timer;
-	
+	private Dialog d;
+	private TextView dialogText;
+	private Timer timer;
 	
 	//ListView中的数据
 	ArrayList<HashMap<String, Object>> listItem = new
@@ -89,7 +79,6 @@ public class PublishPrize extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.publish_view);
 		System.out.println("Publish --> onCreate");
-		
 		listView = (ListView)findViewById(R.id.publishList);
 		gridview = (GridView)findViewById(R.id.showPrizeGridView);
 		playSoundPool=new PlaySoundPool(this);
@@ -97,7 +86,6 @@ public class PublishPrize extends Activity{
 		//设置淡入效果
 		animation = AnimationUtils.loadAnimation(PublishPrize.this, R.anim.alpha_publish);
 		sp1 = PublishPrize.this.getSharedPreferences("view", Context.MODE_PRIVATE);
-		
 		publishLoad();
 		
 		//生成6个随机红球和1个随机蓝球资源
@@ -125,18 +113,14 @@ public class PublishPrize extends Activity{
 		//接收倒计时数字
 		 final Handler handler = new Handler(){
 
-				@Override
 				public void handleMessage(Message msg) {
-					// TODO Auto-generated method stub
 					super.handleMessage(msg);
 					d.show();
-					
 					if(msg.what > 0){
 						dialogText.setText("" + msg.what);
 					}
 					else if(msg.what == 0){
 						dialogText.setText("开奖!");
-						
 					}
 					else{
 						dialogText.setText("");
@@ -145,7 +129,6 @@ public class PublishPrize extends Activity{
 						showPrize();
 					}
 				}
-	        	
 	        };
 		
 		//点击开奖按钮
@@ -274,8 +257,7 @@ public class PublishPrize extends Activity{
 			 int y = 0;
 			 int z = 0;  //测试中奖事件的变量
 			 int src = 0;    //在投注的号码与开奖的号码中，红球相同的个数
-	          while(x < random.length && y < number.length)
-	          {
+	          while(x < random.length && y < number.length){
 	               if(random[x] == number[y]){
 	                         src++;
 	                         x++;
@@ -289,7 +271,6 @@ public class PublishPrize extends Activity{
 
 			//计算得到的奖金数目
 			if(blueNumber == blueRandom ){
-				
 				if(src == 0 || src == 1 || src == 2){
 				youScore = youScore + counter[i]*5;
 				systemScore = systemScore - counter[i]*5;
@@ -304,11 +285,10 @@ public class PublishPrize extends Activity{
 				}
 				
 				else if(src == 3){
-					
 					if(fivePri == 5){
 						 achView(R.drawable.five, "恭喜您获得'五等奖'的成就");
 						 fivePri++;
-						  editor2.putInt("fivePri" , fivePri);
+						 editor2.putInt("fivePri" , fivePri);
 					}
 					youScore = youScore + counter[i]*10;
 					systemScore = systemScore - counter[i]*10;
@@ -319,7 +299,7 @@ public class PublishPrize extends Activity{
 					if(fourPri == 4){
 						 achView(R.drawable.four, "恭喜您获得'四等奖'的成就");
 						 fourPri++;
-						  editor2.putInt("fourPri" , fourPri);
+						 editor2.putInt("fourPri" , fourPri);
 					}
 					youScore = youScore + counter[i]*200;
 					systemScore = systemScore - counter[i]*200;
@@ -393,12 +373,10 @@ public class PublishPrize extends Activity{
 			
 			editor2.putInt("youScore" , youScore);
 			editor2.putInt("systemScore", systemScore);
-			
 			editor2.commit();
 		}
 		
 		Editor editorOne = sp1.edit();
-		
 		editorOne.putInt("ver", 0);   //初始化 --投注次数
 		editorOne.commit();
 		AppConnect.getInstance(this).showPopAd(this); 
@@ -406,10 +384,10 @@ public class PublishPrize extends Activity{
 
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if(con != 0){
-		 switch (keyCode) {
-	        case KeyEvent.KEYCODE_BACK:
-	        return true;
-	    }
+			switch (keyCode) {
+		        case KeyEvent.KEYCODE_BACK:
+		        return true;
+		    }
 		}
 		return super.onKeyDown(keyCode, event);
 	}

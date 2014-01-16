@@ -353,7 +353,7 @@ public class BallView extends Activity implements android.view.GestureDetector.O
 							
 							Intent intent = new Intent();
 
-							intent.setClass(BallView.this , TwoColor.class);
+							intent.setClass(BallView.this , MainActivity.class);
 							startActivity(intent);
 							
 							showBallDialog.cancel();

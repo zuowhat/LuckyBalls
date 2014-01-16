@@ -4,11 +4,7 @@
      android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" 
-    android:background="@drawable/red_back"
-    >
-    
-    
-   
+    android:background="@drawable/red_back">
     <RelativeLayout 
             android:id="@+id/top_frame"  
             android:layout_marginLeft="10dp"
@@ -18,7 +14,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/main_top"
             android:orientation="horizontal"
-            
              >
              
         <Button 
@@ -26,14 +21,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shut"
-            
-           
             />
         
     	
         <TextView 
             android:id="@+id/title"
-           
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -48,24 +40,16 @@
             android:background="@drawable/set"
             android:layout_alignParentRight="true"
             />
-        
-        
     </RelativeLayout >
     
-   
     <LinearLayout 
             android:id="@+id/main_frame"  
             android:padding="10dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_centerVertical="true"
+            android:layout_centerVertical="true">
             
-            >
-            
-        
-        
-             
         </LinearLayout>
         
 <LinearLayout 

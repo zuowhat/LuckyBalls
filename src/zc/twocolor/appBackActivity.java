@@ -21,7 +21,7 @@ public class appBackActivity extends Activity {
 
                  @Override
                  public void run() {
-                     Intent mainIntent = new Intent(appBackActivity.this,TwoColor.class);
+                     Intent mainIntent = new Intent(appBackActivity.this,MainActivity.class);
                      appBackActivity.this.startActivity(mainIntent);
                      appBackActivity.this.finish();
                  }
