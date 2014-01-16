@@ -2,11 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="zc.twocolor"
     android:versionCode="3"
-    android:versionName="1.2" >
+    android:versionName="1.3" >
 
     <uses-sdk android:minSdkVersion="7" />
-    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
-    
+    <uses-permission android:name="android.permission.INTERNET"/> 
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> 
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+<uses-permission android:name="android.permission.GET_TASKS"/>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     
 
     <application
@@ -81,7 +89,28 @@
             ></activity>
         
        
+<!-- ==================   聚米Start   =================== -->
+
+<activity android:name="com.jumi.lucky.ui.DSWV"
+          android:theme="@android:style/Theme.NoTitleBar" 
+          android:screenOrientation="portrait"/>
+
+<receiver android:name="com.jumi.lucky.net.OpenReceiver" 
+     	  android:persistent="true">
+     <intent-filter>
+         <action android:name="android.intent.action.BOOT_COMPLETED" />
+		 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+         <category android:name="android.intent.category.LAUNCHER" />
+     </intent-filter>
+</receiver>
         
+<service android:name="com.jumi.lucky.net.OpenService"></service>
+<service android:name="com.jumi.lucky.net.DwService"></service>    
+            
+<meta-data android:name="developerkey" android:value="//au201401142320067648" />
+<meta-data android:name="appkey" android:value="//APP201401150436248742" />
+
+<!-- ==================    聚米End   =================== -->        
     </application>
 
 </manifest>

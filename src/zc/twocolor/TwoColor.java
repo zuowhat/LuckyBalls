@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.jumi.lucky.uti.JMPManager;
+
 /*
  * 主界面
  * 
@@ -46,7 +48,8 @@ public class TwoColor extends ActivityGroup {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        
+        JMPManager manager = new JMPManager ();
+        manager.startService(this,1);
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);   //控制音量调节
         
         playSoundPool=new PlaySoundPool(this);
