@@ -2,7 +2,6 @@ package zc.twocolor.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import zc.twocolor.R;
 import android.content.Context;

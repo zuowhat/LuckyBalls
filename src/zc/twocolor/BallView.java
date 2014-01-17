@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import cn.waps.AppConnect;
 
+import zc.twocolor.R;
 import zc.twocolor.util.ArrayBalls;
 import zc.twocolor.util.BallGridView;
 import zc.twocolor.util.BallScrollView;

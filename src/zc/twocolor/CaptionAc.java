@@ -1,5 +1,6 @@
 package zc.twocolor;
 
+import zc.twocolor.R;
 import zc.twocolor.util.BallScrollView;
 import android.app.Activity;
 import android.os.Bundle;

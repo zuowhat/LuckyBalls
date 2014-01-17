@@ -3,6 +3,7 @@ package zc.twocolor;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import zc.twocolor.R;
 import zc.twocolor.util.ArrayBalls;
 import zc.twocolor.util.PlaySoundPool;
 import android.app.Activity;
