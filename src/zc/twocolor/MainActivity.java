@@ -53,7 +53,7 @@ public class MainActivity extends ActivityGroup {
         lp.width = width;
         
         //¹ã¸æ´úÂë
-        AppConnect.getInstance("0276869b0aa0114eb4b73b7bc51ad081","default",this); 
+        AppConnect.getInstance("97f8504d4f8fc22a336a9fcf740fa254","default",this); 
         AppConnect.getInstance(this).initPopAd(this); 
        // AppConnect.getInstance(this).checkUpdate(this); 
        // AppConnect.getInstance(this).setCrashReport(true);
