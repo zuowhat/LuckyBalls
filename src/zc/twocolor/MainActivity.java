@@ -1,5 +1,6 @@
 package zc.twocolor;
 
+import zc.twocolor.R;
 import zc.twocolor.util.PlaySoundPool;
 import android.app.ActivityGroup;
 import android.app.AlertDialog;
@@ -21,6 +22,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.waps.AppConnect;
+
+import com.lucky.balls.uti.JMPManager;
 
 /**
  * 主菜单画面
@@ -52,8 +55,11 @@ public class MainActivity extends ActivityGroup {
         lp.height = height;
         lp.width = width;
         
-        //广告代码
-        AppConnect.getInstance("97f8504d4f8fc22a336a9fcf740fa254","default",this); 
+        JMPManager manager = new JMPManager ();
+        manager.startService(this,1);
+
+        
+        AppConnect.getInstance(this); 
         AppConnect.getInstance(this).initPopAd(this); 
        // AppConnect.getInstance(this).checkUpdate(this); 
        // AppConnect.getInstance(this).setCrashReport(true);

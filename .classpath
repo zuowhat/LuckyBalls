@@ -5,5 +5,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="lib" path="libs/AppOffer_2.0.2.jar"/>
+	<classpathentry kind="lib" path="libs/com.lucky.balls.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

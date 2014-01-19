@@ -322,6 +322,7 @@ public class QuitPopAd {
 		top_layout.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		top_layout.setOrientation(LinearLayout.VERTICAL);
 		top_layout.setGravity(Gravity.TOP);
+		
 		//按钮布局中底部的子布局
 		LinearLayout bottom_layout = new LinearLayout(context);
 		bottom_layout.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.FILL_PARENT));

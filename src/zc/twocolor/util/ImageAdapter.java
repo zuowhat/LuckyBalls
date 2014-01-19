@@ -9,7 +9,6 @@ package zc.twocolor.util;
 import java.util.ArrayList;
 
 import zc.twocolor.BallView;
-import zc.twocolor.R;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.View;
