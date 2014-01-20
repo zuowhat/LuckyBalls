@@ -21,7 +21,7 @@
          android:layout_marginLeft="60dp"
          android:textColor="#ffffff"
          android:background="@drawable/publish_btn"
-         android:layout_marginBottom="60dp"
+         android:layout_marginBottom="5dp"
         />
     
     <LinearLayout 
@@ -53,7 +53,7 @@
          android:text="兑奖"
          android:layout_alignParentBottom="true"
          android:layout_alignParentRight="true"
-         android:layout_marginBottom="60dp"
+         android:layout_marginBottom="5dp"
          android:layout_marginRight="60dp"
          android:textColor="#ffffff"
          android:background="@drawable/publish_btn"

@@ -248,7 +248,7 @@ public final class R {
         public static final int publish_view_list=0x7f030013;
     }
     public static final class raw {
-        public static final int btn_sound=0x7f050000;
+        public static final int btn_click=0x7f050000;
     }
     public static final class string {
         public static final int app_name=0x7f070000;

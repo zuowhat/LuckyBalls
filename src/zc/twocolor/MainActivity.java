@@ -41,6 +41,9 @@ public class MainActivity extends ActivityGroup {
     private String [] ares = new String[]{"选号区" , "抽奖区" , "开奖区" , 
     		"成就区" , "说明区"};
     private Class<?> [] clName = new Class<?> []{BallView.class, HelpSOS.class, PublishPrize.class, Achievement.class, CaptionAc.class};
+    private int height;
+    private int width;
+    
     
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +51,8 @@ public class MainActivity extends ActivityGroup {
         
         DisplayMetrics dm = new DisplayMetrics();  
         getWindowManager().getDefaultDisplay().getMetrics(dm);  
-        int width = dm.widthPixels;  
-        int height = dm.heightPixels; 
+        width = dm.widthPixels;  
+        height = dm.heightPixels; 
         RelativeLayout rl =(RelativeLayout)findViewById(R.id.all_frame); 
         LayoutParams lp = rl.getLayoutParams();
         lp.height = height;
@@ -60,11 +63,10 @@ public class MainActivity extends ActivityGroup {
 
         
         AppConnect.getInstance(this); 
-        AppConnect.getInstance(this).initPopAd(this); 
+        AppConnect.getInstance(this).initPopAd(this);
        // AppConnect.getInstance(this).checkUpdate(this); 
        // AppConnect.getInstance(this).setCrashReport(true);
        // LinearLayout adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout); 
-       // AppConnect.getInstance(this).showBannerAd(this, adlayout); 
         LinearLayout  adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout); 
         AppConnect.getInstance(this).showBannerAd(this, adlayout); 
         
@@ -74,12 +76,18 @@ public class MainActivity extends ActivityGroup {
         textTitle = (TextView)findViewById(R.id.title);
         exitButton = (Button)findViewById(R.id.exit_button);
         ll = (LinearLayout)findViewById(R.id.main_frame);
+//        lay1.height = Math.round(height*(2f/3f));
+//        lay1.width = width;
+        
         lam = getLocalActivityManager();
         
         //让ActivityGroup中的子Activity之间互相跳转
         SharedPreferences sp = MainActivity.this.getSharedPreferences("view", Context.MODE_PRIVATE);
 		int v = sp.getInt("viewId", 0);
 		if(v == 2){
+	        LayoutParams lay1 = ll.getLayoutParams();
+	        lay1.height = Math.round(height*(3f/4f));
+	        lay1.width = width;
 			ll.removeAllViews();
 	    	mainIntent = new Intent(this,PublishPrize.class);
 	    	ll.addView(lam.startActivity("开奖区", mainIntent).getDecorView());
@@ -90,25 +98,26 @@ public class MainActivity extends ActivityGroup {
 		}
         
         //退出Activtiy
+		
 		exitButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				playSoundPool.playSound(1);
 				QuitPopAd.getInstance().show(MainActivity.this);
 			}});
+			
+			
 		
 		/*
         exitButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				playSoundPool.playSound(1);
-				AlertDialog.Builder exitBuilder = new AlertDialog.Builder(TwoColor.this);
+				AlertDialog.Builder exitBuilder = new AlertDialog.Builder(MainActivity.this);
 				exitBuilder.setMessage("确定要退出吗?");
 				exitBuilder.setCancelable(false); //返回键是否可以关闭对话框
 				exitBuilder.setPositiveButton("是", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						playSoundPool.playSound(1);
-						Intent i = new Intent(Intent.ACTION_MAIN);  
-						  i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  
-						  i.addCategory(Intent.CATEGORY_HOME);  
-						  startActivity(i); 
+						MainActivity.this.finish();
 					}
 				});
 				
@@ -123,6 +132,7 @@ public class MainActivity extends ActivityGroup {
 			}
 		});
         */
+        
         
         //系统设置 --> 弹出列表菜单窗口
         setButton.setOnClickListener(new OnClickListener() {
@@ -167,6 +177,14 @@ public class MainActivity extends ActivityGroup {
     
     //在主界面切换不同的Activity界面
     public void setContainerView(String id , Class<?> activity){
+    	LayoutParams lay1 = ll.getLayoutParams();
+    	if("说明区".equals(id) || ("开奖区".equals(id))){
+          lay1.height = Math.round(height*(3f/4f));
+          lay1.width = width;
+    	}else{
+    		lay1.height = Math.round(height*(4f/5f));
+            lay1.width = width;
+    	}
     	ll.removeAllViews();
     	mainIntent = new Intent(this,activity);
     	ll.addView(lam.startActivity(id, mainIntent).getDecorView());
@@ -178,9 +196,11 @@ public class MainActivity extends ActivityGroup {
 		SharedPreferences spView = MainActivity.this.getSharedPreferences("view", Context.MODE_PRIVATE);
 		Editor editor = spView.edit();
 		editor.putInt("viewId" , 0);
+		editor.putInt("ver", 0);
 		editor.commit();
 		AppConnect.getInstance(this).close();
 		super.onDestroy();
+		System.exit(0);
 	}
 
 /*

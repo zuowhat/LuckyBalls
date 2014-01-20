@@ -62,7 +62,7 @@ public class QuitPopAd {
 						if(dialog != null){
 							dialog.cancel();
 						}
-						((Activity)context).finish();
+						((MainActivity)context).finish();
 					}
 				})
 				.setNegativeButton("取消", new AlertDialog.OnClickListener(){
@@ -84,7 +84,7 @@ public class QuitPopAd {
 					if(dialog != null){
 						dialog.cancel();
 					}
-					((Activity)context).finish();
+					((MainActivity)context).finish();
 				}
 			})
 			.setNegativeButton("取消", new AlertDialog.OnClickListener(){
@@ -185,7 +185,7 @@ public class QuitPopAd {
 				if(dialog != null){
 					dialog.cancel();
 				}
-				((Activity)context).finish();
+				((MainActivity)context).finish();
 			}
 		});
 		
@@ -338,7 +338,7 @@ public class QuitPopAd {
 				if(dialog != null){
 					dialog.cancel();
 				}
-				((Activity)context).finish();
+				((MainActivity)context).finish();
 			}
 		});
 		

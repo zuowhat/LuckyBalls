@@ -19,7 +19,7 @@ public class PlaySoundPool {
 	  this.context = context;
 	  soundPool = new SoundPool(2,AudioManager.STREAM_MUSIC,0);
 	    spMap = new HashMap<Integer,Integer>();
-	    spMap.put(1, soundPool.load(context, R.raw.btn_sound, 1));  //添加第一个声音，代号1
+	    spMap.put(1, soundPool.load(context, R.raw.btn_click, 1));  //添加第一个声音，代号1
 	    
 	  //添加第二个声音，代号2
 	    //spMap.put(2, soundPool.load(context, R.raw.btn_sound, 1));  
