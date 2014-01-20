@@ -66,7 +66,7 @@ public class Achievement extends Activity{
 					long arg3) {
 				
 				//System.out.println("arg2 -->" + arg2);
-				AppConnect.getInstance(Achievement.this).showPopAd(Achievement.this); 
+				//AppConnect.getInstance(Achievement.this).showPopAd(Achievement.this); 
 				playSoundPool.playSound(1);
 				switch (arg2) {
 				

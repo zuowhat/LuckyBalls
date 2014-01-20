@@ -75,7 +75,7 @@ public class HelpSOS extends Activity{
 							int arg2, long arg3) {
 						playSoundPool.playSound(1);
 						if(num < 0){
-							AppConnect.getInstance(HelpSOS.this).showPopAd(HelpSOS.this); 
+							//AppConnect.getInstance(HelpSOS.this).showPopAd(HelpSOS.this); 
 							Toast.makeText(HelpSOS.this, "您不能再进行抽奖...", 1).show();
 						}
 						else{

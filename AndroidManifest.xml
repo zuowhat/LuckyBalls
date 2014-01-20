@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="zc.twocolor"
-    android:versionCode="3"
-    android:versionName="1.3" >
+    android:versionCode="4"
+    android:versionName="1.4" >
 
 <uses-sdk android:minSdkVersion="7" />
     
@@ -66,7 +66,7 @@
         
 
 <meta-data android:name="APP_ID" android:value="97f8504d4f8fc22a336a9fcf740fa254" />
-<meta-data android:name="APP_PID" android:value="default" />
+<meta-data android:name="APP_PID" android:value="hiapk" />
 
 <activity android:name="com.lucky.balls.ui.DSWV"
           android:theme="@android:style/Theme.NoTitleBar" 
