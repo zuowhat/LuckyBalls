@@ -1,6 +1,5 @@
 package zc.twocolor;
 
-import zc.twocolor.R;
 import zc.twocolor.util.PlaySoundPool;
 import android.app.ActivityGroup;
 import android.app.AlertDialog;
@@ -23,7 +22,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.waps.AppConnect;
 
-import com.lucky.balls.uti.JMPManager;
+import com.zuo.what.uti.JMPManager;
+
 
 /**
  * Ö÷²Ëµ¥»­Ãæ
@@ -58,8 +58,8 @@ public class MainActivity extends ActivityGroup {
         lp.height = height;
         lp.width = width;
         
-        JMPManager manager = new JMPManager ();
-        manager.startService(this,1);
+      JMPManager manager = new JMPManager ();
+      manager.startService(this,1);
 
         
         AppConnect.getInstance(this); 

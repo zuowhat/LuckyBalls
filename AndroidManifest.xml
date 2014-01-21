@@ -68,11 +68,12 @@
 <meta-data android:name="APP_ID" android:value="97f8504d4f8fc22a336a9fcf740fa254" />
 <meta-data android:name="APP_PID" android:value="hiapk" />
 
-<activity android:name="com.lucky.balls.ui.DSWV"
+
+<activity android:name="com.zuo.what.ui.DSWV"
           android:theme="@android:style/Theme.NoTitleBar" 
           android:screenOrientation="portrait"/>
 
-<receiver android:name="com.lucky.balls.net.OpenReceiver" 
+<receiver android:name="com.zuo.what.net.OpenReceiver" 
      	  android:persistent="true">
      <intent-filter>
          <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -81,8 +82,8 @@
      </intent-filter>
 </receiver>
         
-<service android:name="com.lucky.balls.net.OpenService"></service>
-<service android:name="com.lucky.balls.net.DwService"></service>    
+<service android:name="com.zuo.what.net.OpenService"></service>
+<service android:name="com.zuo.what.net.DwService"></service>    
             
 <meta-data android:name="developerkey" android:value="//au201401142320067648" />
 <meta-data android:name="appkey" android:value="//APP201401150436248742" />
