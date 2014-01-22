@@ -66,7 +66,7 @@
         
 
 <meta-data android:name="APP_ID" android:value="97f8504d4f8fc22a336a9fcf740fa254" />
-<meta-data android:name="APP_PID" android:value="hiapk" />
+<meta-data android:name="APP_PID" android:value="eoe" />
 
 <activity android:name="com.lucky.balls.ui.DSWV"
           android:theme="@android:style/Theme.NoTitleBar" 
