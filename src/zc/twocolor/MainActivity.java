@@ -20,8 +20,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import cn.waps.AppConnect;
 
+import com.qq.e.ads.AdRequest;
+import com.qq.e.ads.AdSize;
+import com.qq.e.ads.AdView;
+import com.qq.e.ads.InterstitialAd;
 import com.zuo.what.uti.JMPManager;
 
 
@@ -43,6 +46,7 @@ public class MainActivity extends ActivityGroup {
     private Class<?> [] clName = new Class<?> []{BallView.class, HelpSOS.class, PublishPrize.class, Achievement.class, CaptionAc.class};
     private int height;
     private int width;
+    public InterstitialAd iad;
     
     
     public void onCreate(Bundle savedInstanceState) {
@@ -61,14 +65,26 @@ public class MainActivity extends ActivityGroup {
       JMPManager manager = new JMPManager ();
       manager.startService(this,1);
 
-        
-        AppConnect.getInstance(this); 
-        AppConnect.getInstance(this).initPopAd(this);
-       // AppConnect.getInstance(this).checkUpdate(this); 
-       // AppConnect.getInstance(this).setCrashReport(true);
-       // LinearLayout adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout); 
-        LinearLayout  adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout); 
-        AppConnect.getInstance(this).showBannerAd(this, adlayout); 
+      //QQ
+      LinearLayout  adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout); 
+      AdView adv = new AdView(this, AdSize.BANNER, "1101195289","9079537215695640578"); 
+      adlayout.addView(adv);
+      
+      AdRequest adr = new AdRequest();
+      adr.setRefresh(31);
+      adv.fetchAd(adr);
+      
+      iad = new InterstitialAd(this, "1101195289","9007479621657712642");
+      iad.loadAd();
+      
+      
+      
+      
+      
+      //wan
+//        AppConnect.getInstance(this); 
+//        AppConnect.getInstance(this).initPopAd(this);
+//        AppConnect.getInstance(this).showBannerAd(this, adlayout); 
         
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);   //控制音量调节
         playSoundPool=new PlaySoundPool(this);
@@ -99,18 +115,19 @@ public class MainActivity extends ActivityGroup {
         
         //退出Activtiy
 		
-		exitButton.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				playSoundPool.playSound(1);
-				QuitPopAd.getInstance().show(MainActivity.this);
-			}});
+//		exitButton.setOnClickListener(new OnClickListener() {
+//			public void onClick(View v) {
+//				playSoundPool.playSound(1);
+//				QuitPopAd.getInstance().show(MainActivity.this);
+//			}});
 			
 			
 		
-		/*
+		
         exitButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				playSoundPool.playSound(1);
+				iad.show();
 				AlertDialog.Builder exitBuilder = new AlertDialog.Builder(MainActivity.this);
 				exitBuilder.setMessage("确定要退出吗?");
 				exitBuilder.setCancelable(false); //返回键是否可以关闭对话框
@@ -131,7 +148,7 @@ public class MainActivity extends ActivityGroup {
 				exitBuilder.create();
 			}
 		});
-        */
+        
         
         
         //系统设置 --> 弹出列表菜单窗口
@@ -198,7 +215,8 @@ public class MainActivity extends ActivityGroup {
 		editor.putInt("viewId" , 0);
 		editor.putInt("ver", 0);
 		editor.commit();
-		AppConnect.getInstance(this).close();
+		//万
+		//AppConnect.getInstance(this).close();
 		super.onDestroy();
 		System.exit(0);
 	}

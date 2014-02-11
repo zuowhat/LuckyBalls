@@ -1,7 +1,6 @@
 package zc.twocolor;
 import java.util.ArrayList;
 
-import cn.waps.AppConnect;
 
 import zc.twocolor.R;
 import zc.twocolor.util.ArrayBalls;

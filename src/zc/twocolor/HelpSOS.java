@@ -24,7 +24,6 @@ import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import cn.waps.AppConnect;
 
 public class HelpSOS extends Activity{
 	

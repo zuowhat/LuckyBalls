@@ -24,7 +24,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
-import cn.waps.AppConnect;
 
 
 public class Achievement extends Activity{

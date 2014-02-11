@@ -1,3 +1,5 @@
+
+
 package zc.twocolor;
 
 import android.app.Activity;
@@ -18,8 +20,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import cn.waps.AppConnect;
-import cn.waps.SDKUtils;
 
 public class QuitPopAd {
 
@@ -42,7 +42,8 @@ public class QuitPopAd {
 		
 		dialog = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar);//第二个样式参数,可根据自己应用或游戏中的布局进行设置
 		// 判断插屏广告是否已初始化完成，用于确定是否能成功调用插屏广告
-		if(AppConnect.getInstance(context).hasPopAd(context)){
+		//if(AppConnect.getInstance(context).hasPopAd(context)){
+			if(1==1){
 			View view = null;
 			if(((Activity)context).getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
 				view = getQuitView_Portrait(context, dialog);
@@ -114,7 +115,8 @@ public class QuitPopAd {
 	 */
 	private LinearLayout getQuitView_Portrait(final Context context, final Dialog dialog){
 		// 对小屏手机进行屏幕判断
-		int displaySize = SDKUtils.getDisplaySize(context);
+		//int displaySize = SDKUtils.getDisplaySize(context);
+		int displaySize = 200;
 		
 		//设置标题布局的两个顶角为圆角
 		float num = 10f;
@@ -158,7 +160,8 @@ public class QuitPopAd {
 		title_layout.addView(textView);
 		
 		//获取插屏布局
-		LinearLayout pop_layout = AppConnect.getInstance(context).getPopAdView(context);
+		//LinearLayout pop_layout = AppConnect.getInstance(context).getPopAdView(context);
+		LinearLayout pop_layout = null;
 		
 		if(pop_layout == null){
 			return null;
@@ -205,7 +208,7 @@ public class QuitPopAd {
 		moreButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				AppConnect.getInstance(context).showOffers(context);
+				//AppConnect.getInstance(context).showOffers(context);
 				if(dialog != null){
 					dialog.cancel();
 				}
@@ -298,9 +301,9 @@ public class QuitPopAd {
 		
 		int height = height_tmp - 55;//55为自定义
 		if(height_full <= 480){
-			pop_layout = AppConnect.getInstance(context).getPopAdView(context, height, height);
+			//pop_layout = AppConnect.getInstance(context).getPopAdView(context, height, height);
 		}else{
-			pop_layout = AppConnect.getInstance(context).getPopAdView(context);
+			//pop_layout = AppConnect.getInstance(context).getPopAdView(context);
 		}
 		
 		if(pop_layout == null){
@@ -358,7 +361,7 @@ public class QuitPopAd {
 		moreButton.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				AppConnect.getInstance(context).showOffers(context);
+				//AppConnect.getInstance(context).showOffers(context);
 				if(dialog != null){
 					dialog.cancel();
 				}
@@ -403,3 +406,4 @@ public class QuitPopAd {
 		return layout;
 	}
 }
+
