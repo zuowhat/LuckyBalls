@@ -127,6 +127,7 @@ public class MainActivity extends ActivityGroup {
         exitButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				playSoundPool.playSound(1);
+				//iad.loadAd();
 				iad.show();
 				AlertDialog.Builder exitBuilder = new AlertDialog.Builder(MainActivity.this);
 				exitBuilder.setMessage("确定要退出吗?");
