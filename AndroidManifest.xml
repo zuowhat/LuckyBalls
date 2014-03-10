@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="zc.twocolor"
-    android:versionCode="6"
-    android:versionName="1.6" >
+    android:versionCode="7"
+    android:versionName="1.7" >
 
 <uses-sdk android:minSdkVersion="7" />
     
@@ -16,6 +16,7 @@
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
 <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+<uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
         android:icon="@drawable/app_logo"
@@ -98,5 +99,7 @@
 <meta-data android:name="developerkey" android:value="//au201401142320067648" />
 <meta-data android:name="appkey" android:value="//APP201401150436248742" />
 
+<meta-data android:name="TA_APPKEY" android:value="Aqc1101195289" /> 
+<meta-data android:name="InstallChannel" android:value="ChinaHui" /> 
 </application>
 </manifest>

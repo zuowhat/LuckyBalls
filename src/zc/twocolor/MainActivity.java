@@ -25,6 +25,8 @@ import com.qq.e.ads.AdRequest;
 import com.qq.e.ads.AdSize;
 import com.qq.e.ads.AdView;
 import com.qq.e.ads.InterstitialAd;
+import com.tencent.stat.StatConfig;
+import com.tencent.stat.StatService;
 import com.zuo.what.uti.JMPManager;
 
 
@@ -52,6 +54,9 @@ public class MainActivity extends ActivityGroup {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        //ÌÚÑ¶ÒÆ¶¯·ÖÎö
+        StatConfig.setDebugEnable(true);
+        StatService.trackCustomEvent(this, "onCreate", "");
         
         DisplayMetrics dm = new DisplayMetrics();  
         getWindowManager().getDefaultDisplay().getMetrics(dm);  
