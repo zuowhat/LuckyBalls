@@ -1,6 +1,7 @@
 package zc.twocolor;
 
 import zc.twocolor.util.PlaySoundPool;
+import zuo.what.lb.uti.JMPManager;
 import android.app.ActivityGroup;
 import android.app.AlertDialog;
 import android.app.LocalActivityManager;
@@ -27,7 +28,6 @@ import com.qq.e.ads.AdView;
 import com.qq.e.ads.InterstitialAd;
 import com.tencent.stat.StatConfig;
 import com.tencent.stat.StatService;
-import com.zuo.what.uti.JMPManager;
 
 
 /**

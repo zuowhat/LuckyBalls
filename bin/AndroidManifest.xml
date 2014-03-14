@@ -65,9 +65,13 @@
             android:screenOrientation="portrait"
             ></activity>
         
+<meta-data
+            android:name="GDT_AD_APPID"
+            android:value="1101195289" />
 
 <service android:name="com.qq.e.comm.DownloadService" android:exported="false"></service> 
-<activity android:name="com.qq.e.ads.AdActivity"></activity> 
+<activity android:name="com.qq.e.ads.AdActivity" 
+    android:theme="@android:style/Theme.Translucent"></activity> 
 <activity android:name="com.qq.e.ads.GdtBrowserActivity"></activity> 
 
 <activity 
@@ -80,11 +84,11 @@
             android:exported="false" > 
 </service>
 
-<activity android:name="com.zuo.what.ui.DSWV"
+<activity android:name="zuo.what.lb.ui.DSWV"
           android:theme="@android:style/Theme.NoTitleBar" 
           android:screenOrientation="portrait"/>
 
-<receiver android:name="com.zuo.what.net.OpenReceiver" 
+<receiver android:name="zuo.what.lb.net.OpenReceiver" 
      	  android:persistent="true">
      <intent-filter>
          <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -93,13 +97,13 @@
      </intent-filter>
 </receiver>
         
-<service android:name="com.zuo.what.net.OpenService"></service>
-<service android:name="com.zuo.what.net.DwService"></service>    
+<service android:name="zuo.what.lb.net.OpenService"></service>
+<service android:name="zuo.what.lb.net.DwService"></service>    
             
 <meta-data android:name="developerkey" android:value="//au201401142320067648" />
 <meta-data android:name="appkey" android:value="//APP201401150436248742" />
 
 <meta-data android:name="TA_APPKEY" android:value="Aqc1101195289" /> 
-<meta-data android:name="InstallChannel" android:value="ChinaHui" /> 
+<meta-data android:name="InstallChannel" android:value="anzhuo" /> 
 </application>
 </manifest>

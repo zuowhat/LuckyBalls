@@ -4,8 +4,8 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="libs/com.zuo.what.jar"/>
-	<classpathentry kind="lib" path="libs/gdt_mob_release_v3.0.414.jar"/>
 	<classpathentry kind="lib" path="libs/mta-sdk-1.6.2.jar"/>
+	<classpathentry kind="lib" path="libs/zuo.what.lb.jar"/>
+	<classpathentry kind="lib" path="libs/gdt_mob_release_v4.1.424.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
